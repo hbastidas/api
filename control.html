@@ -1,0 +1,23 @@
+<html>
+    <head>
+    <script src="http://intranet.vtv.gov.ve:5602/socket.io/socket.io.js"></script>
+    <script>
+      //general para ambos
+      var socket = io.connect('http://intranet.vtv.gov.ve:5602');
+
+      //codigo para el frontend
+      socket.on('reiniciar', function (data) {
+        alert('se ha reiniciado el tema: '+data);
+      });
+
+
+      function reiniciar(obj){
+        socket.emit('reiniciar', "si");
+      }
+
+    </script>
+    </head>
+    <body>
+        <button onclick="reiniciar();">reiniciar</button>
+    </body>
+</html>
