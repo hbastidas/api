@@ -81,7 +81,9 @@ class Intranet
     }
 
     public function conectarsigesp(){
-        $this->sigesp = new Database('172.16.8.224', 'VTV_2015', 'INTRANET', 'INTRANET', '5430', 'pgsql');
+        $ano=date('Y');
+        $this->bd_sigesp='VTV_'.$ano;
+        $this->sigesp = new Database('172.16.8.224', $this->bd_sigesp, 'INTRANET', 'INTRANET', '5430', 'pgsql');
         $this->sigesp->exec("SET NAMES 'UTF8'");
     }
 
